@@ -46,5 +46,5 @@ function getCurrentDate() {
   const hours = String(currentDate.getHours()).padStart(2, '0');
   const minutes = String(currentDate.getMinutes()).padStart(2, '0');
 
-  return `${year}_${month}_${day}_${hours}_${minutes}`;
+  return `${year}-${month}-${day}-${hours}-${minutes}`;
 }
