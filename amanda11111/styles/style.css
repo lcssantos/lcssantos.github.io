@@ -42,4 +42,5 @@ body {
 
 .container .info p {
   color: white;
+  font-size: 12px !important;
 }
