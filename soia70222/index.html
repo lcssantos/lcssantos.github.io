@@ -8,21 +8,24 @@
   <title>Vereador Soia - 70.222</title>
   <meta name="title" content="Vereador Soia - 70.222">
   
-  <link rel="stylesheet" href="./styles/style.css?v=2">
+  <link rel="stylesheet" href="./styles/style.css?v=0">
 </head>
 
 <body>
   <div class="container">
     <main>
       <canvas width="1080" height="1080" onclick="openImagePicker()"></canvas>
-      <input id="slcImage" type="file" accept="image/*" class="dn" onchange="changeImage(event)">
-        <div id="pnlAction" class="dn">
-          <button id="btnSave" class="btn" onclick="saveImage()">Salvar</button>
-          <button id="btnShare" class="btn" onclick="shareImage()">Compartilhar</button>
-        </div>
+      <input id="slcImage" type="file" accept="image/*" class="dn" onchange="changeImage(event)"/>
+      <div id="pnlAction" class="dn">
+        <button id="btnSave" class="btn" onclick="saveImage()">Salvar</button>
+        <button id="btnShare" class="btn" onclick="shareImage()">Compartilhar</button>
+      </div>
+      <div id="pnlInfo" class="info">
+        <p>Por favor, utilize o Chrome para baixar ou compartilhar a foto gerada.</p>
+      </div>
     </main>
   </div>
-  <script src="./scripts/init.js?v=2"></script>
-  <script src="./scripts/export.js?v=2"></script>
+  <script src="./scripts/init.js?v=0"></script>
+  <script src="./scripts/export.js?v=0"></script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 async function shareImage() {
   try {
-    gtag("event", "share");
     canvas.toBlob((blob) => {
       const filesArray = [
         new File(
@@ -16,28 +15,36 @@ async function shareImage() {
       navigator.share(shareData);
     });
   } catch (error) {
-    gtag("event", "exception", {
-      description: "[fn:shareImage] " + (error.message || error),
-      fatal: false,
-    });
-    alert(
-      "Não foi possível compartilhar a imagem: " + (error.message || error)
-    );
+    alert("Não foi possível compartilhar a imagem");
   }
 }
 
 function saveImage() {
   try {
-    gtag("event", "download");
-    const a = document.createElement("a");
-    a.setAttribute("href", canvas.toDataURL("image/png"));
-    a.setAttribute("download", "perfil");
-    a.click();
-  } catch (error) {
-    gtag("event", "exception", {
-      description: "[fn:saveImage] " + (error.message || error),
-      fatal: false,
+    canvas.toBlob(function(blob) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `perfil_${getCurrentDate()}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     });
-    alert("Não foi possível baixar a imagem: " + (error.message || error));
+  } catch (error) {
+    alert("Não foi possível baixar a imagem");
   }
+}
+
+function getCurrentDate() {
+  const currentDate = new Date();
+  
+  const year = currentDate.getFullYear();
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  
+  const hours = String(currentDate.getHours()).padStart(2, '0');
+  const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+
+  return `${year}-${month}-${day}-${hours}-${minutes}`;
 }
