@@ -59,6 +59,7 @@ function changeImage(ev) {
     };
 
     reader.readAsDataURL(ev.target.files[0]);
+    document.getElementById("pnlAction").classList.remove("dn");
   }
 }
 
