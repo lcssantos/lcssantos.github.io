@@ -2,10 +2,10 @@ const canvas = document.querySelector("canvas");
 const canvasContext = canvas.getContext("2d");
 
 const imageMask = new Image();
-imageMask.src = "./img/mask.png";
+imageMask.src = "./img/mask.png?v=1";
 
 const imageMaskSample = new Image();
-imageMaskSample.src = "./img/maskSample.png";
+imageMaskSample.src = "./img/maskSample.png?v=1";
 
 let imageSelected = new Image();
 
