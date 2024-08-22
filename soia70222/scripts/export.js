@@ -1,6 +1,5 @@
 async function shareImage() {
   try {
-    gtag("event", "share");
     canvas.toBlob((blob) => {
       const filesArray = [
         new File(
@@ -16,10 +15,6 @@ async function shareImage() {
       navigator.share(shareData);
     });
   } catch (error) {
-    gtag("event", "exception", {
-      description: "[fn:shareImage] " + (error.message || error),
-      fatal: false,
-    });
     alert(
       "Não foi possível compartilhar a imagem: " + (error.message || error)
     );
@@ -28,16 +23,17 @@ async function shareImage() {
 
 function saveImage() {
   try {
-    gtag("event", "download");
-    const a = document.createElement("a");
-    a.setAttribute("href", canvas.toDataURL("image/png"));
-    a.setAttribute("download", "perfil");
-    a.click();
-  } catch (error) {
-    gtag("event", "exception", {
-      description: "[fn:saveImage] " + (error.message || error),
-      fatal: false,
+    canvas.toBlob(function(blob) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'perfil.png';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     });
+  } catch (error) {
     alert("Não foi possível baixar a imagem: " + (error.message || error));
   }
 }
