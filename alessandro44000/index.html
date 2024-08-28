@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vereador Alessandro Martins - 44.000</title>
+  <meta name="title" content="Vereador Alessandro Martins - 44.000">
+  
+  <link rel="stylesheet" href="./styles/style.css?v=5">
+</head>
+
+<body>
+  <div class="container">
+    <main>
+      <canvas width="1080" height="1080" onclick="openImagePicker()"></canvas>
+      <input id="slcImage" type="file" accept="image/*" class="dn" onchange="changeImage(event)"/>
+      <div id="pnlAction" class="dn">
+        <button id="btnSave" class="btn" onclick="saveImage()">Salvar</button>
+        <button id="btnShare" class="btn" onclick="shareImage()">Compartilhar</button>
+      </div>
+      <div id="pnlInfo" class="info">
+        <p>Por favor, utilize o seu navegador para salvar ou compartilhar a foto gerada.</p>
+      </div>
+    </main>
+  </div>
+  <script src="./scripts/init.js?v=5"></script>
+  <script src="./scripts/export.js?v=5"></script>
+</body>
+</html>
